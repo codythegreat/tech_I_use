@@ -11,7 +11,6 @@ const increaseOpacityContents = () => {
         document.getElementById("content-left").style.opacity = `${currentOpacity}`;
         document.getElementById("content-right").style.opacity = `${currentOpacity}`;
         if (currentOpacity == 1) {
-            currentOpacity = 0;
             clearInterval(intervalIncreaseOpacityLeft);
             clearInterval(intervalIncreaseOpacityRight);
         } else {
@@ -39,47 +38,34 @@ const drawCanvasImage = () => {
 };
 
 const drawCanvasItemRects = () => {
-    let intervalDrawItemRects = setInterval(function() {
-        drawItemRects();
-    }, 30);
-    
-    let rectSize = 0;
-    const drawItemRects = () => {
-        rectSize += 1;
-        if (rectSize == 15) {clearInterval(intervalDrawItemRects);}
-        for (let position of itemPositions) {
-            ctx.fillRect(
-                Math.floor(ctx.canvas.width*position[0]),
-                Math.floor(ctx.canvas.height*position[1]),
-                rectSize,
-                rectSize
-            )
-        }
-    };
+    for (let position of itemPositions) {
+        ctx.fillRect(
+            Math.floor(ctx.canvas.width*position[0]),
+            Math.floor(ctx.canvas.height*position[1]),
+            15,
+            15
+        )
+    }
 };
 
+
 const drawCanvasAnimation = () => {
-    let intervalAnimations = setInterval(function() {
-        animate();
-    }, 10);
-    const animate = () => {
-        for (let position of itemPositions) {
-            let destination;
-            if (position[0] <= .5) {
-                destination = .04; //canvas far left
-            } else {
-                destination = .96; //canvas far right
-            }
-            ctx.fillRect(Math.floor(ctx.canvas.width*destination),
-                         Math.floor(ctx.canvas.height*position[1]),
-                         Math.floor((ctx.canvas.width*position[0])-(ctx.canvas.width*destination)),
-                         3)
-            ctx.fillRect(Math.floor(ctx.canvas.width*destination),
-                         Math.floor(ctx.canvas.height*position[1]),
-                         3,
-                         Math.floor(ctx.canvas.height*(1-position[1])))
+    for (let position of itemPositions) {
+        let destination;
+        if (position[0] <= .5) {
+            destination = .04; //canvas far left
+        } else {
+            destination = .96; //canvas far right
         }
-    };
+        ctx.fillRect(Math.floor(ctx.canvas.width*destination),
+                     Math.floor(ctx.canvas.height*position[1]),
+                     Math.floor((ctx.canvas.width*position[0])-(ctx.canvas.width*destination)),
+                     3)
+        ctx.fillRect(Math.floor(ctx.canvas.width*destination),
+                     Math.floor(ctx.canvas.height*position[1]),
+                     3,
+                     Math.floor(ctx.canvas.height*(1-position[1])))
+    }
 };
 
 window.addEventListener("resize", function() {
