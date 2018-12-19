@@ -30,7 +30,11 @@ const drawCanvasAnimations = () => {
         ctx.fillStyle = "#311";
         ctx.fill();
         let img = document.getElementById("canvas-img");
-        ctx.drawImage(document.getElementById("canvas-img"), Math.floor(ctx.canvas.width/2), 0, Math.floor(ctx.canvas.width - ((img.naturalWidth/img.naturalHeight)*ctx.canvas.height)), ctx.canvas.height);
+        ctx.drawImage(document.getElementById("canvas-img"), 
+            Math.floor(ctx.canvas.width - ((ctx.canvas.width - (600*1.77))/2) ) - Math.floor(ctx.canvas.height * 1.77), 
+            0, 
+            Math.floor(ctx.canvas.height * 1.77), 
+            ctx.canvas.height);
         if (ctx.canvas.height == 600) {
             clearInterval(intervalCanvasHeight);
         }
