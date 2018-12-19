@@ -29,7 +29,7 @@ const drawCanvasImage = () => {
         ctx.canvas.width = img.naturalWidth;
     }
     ctx.canvas.height = ctx.canvas.width * (img.naturalHeight/img.naturalWidth);
-    ctx.fillStyle = "#311";
+    ctx.fillStyle = "#54A9FF";
     ctx.drawImage(document.getElementById("canvas-img"),
         0,
         0,
@@ -63,7 +63,7 @@ const drawCanvasAnimation = () => {
                      3)
         ctx.fillRect(Math.floor(ctx.canvas.width*destination),
                      Math.floor(ctx.canvas.height*position[1]),
-                     3,
+                     4,
                      Math.floor(ctx.canvas.height*(1-position[1])))
     }
 };

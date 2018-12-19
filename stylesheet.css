@@ -1,21 +1,21 @@
 body {
     font-family: 'B612 Mono', monospace;
-    background: #fff;
+    background: #F7FBFF;
     width: 100%;
     height: 100%;
     margin: 0px;
-    color: black;
+    color: #577899;
 }
 .navigation-bar {
     overflow: hidden;
-    background: #311;
-    color: #eff;
+    background: #495867;
+    color: #BED4EA;
     font-size: 1.2rem;
 }
 #nav-top-header {
     float: left;
     padding: 10px 10px;
-    color: #eff;
+    color: #BED4EA;
 }
 #nav-top-dropdown {
     float: right;
@@ -25,8 +25,8 @@ body {
     overflow: hidden;
 }
 #nav-top-dropdown:hover {
-    background: #eff;
-    color: #311;
+    background: #BED4EA;
+    color: #495867;
 }
 #nav-top-dropdown:hover .dropdown-content {
     display: block;
@@ -35,7 +35,7 @@ body {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #eff;
+    background-color: #BED4EA;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -49,12 +49,12 @@ body {
     text-align: right;
 }
 .dropdown-content a:hover {
-    background: #311;
-    color: #eff;
+    background: #495867;
+    color: #BED4EA;
 }
 #header-text {
     text-align: center;
-    color: #311;
+    color: #495867;
 }
 #hardware-img {
     width: 100%;
@@ -66,6 +66,7 @@ body {
 }
 #canvas-hardware {
     display: inline;
+    margin-bottom: 50px;
 }
 #hardware-img-description {
     max-width: 1000px;
@@ -88,7 +89,8 @@ body {
     text-align: center;
     width: 80%;
     margin: auto;
-    border-bottom: solid 2px #311;
+    padding-bottom: 12px;
+    border-bottom: solid 4px #54A9FF;
 }
 @media only screen and (max-device-width: 812px) {
     #content-left {
