@@ -1,6 +1,9 @@
 body {
     font-family: 'B612 Mono', monospace;
-    background: #eff
+    background: #eff;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
 }
 .navigation-bar {
     overflow: hidden;

@@ -8,15 +8,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css" type="text/css">
   </head>
-  <body onload="increaseOpacityContents();">
+  <body onload="increaseOpacityContents();drawCanvasAnimations();">
       <div class="navigation-bar" id="nav-top">
           <a href="#" class="nav-link" id="nav-top-header">Tech I Use</a>
           <div class="dropdown" id="nav-top-dropdown">
             <i class="material-icons">view_headline</i>
             <div class="dropdown-content" id="nav-top-dropdown-content">
-                    <a href="#">Link</a>
-                    <a href="#">Link</a>
-                    <a href="#">Link</a>
+                    <a href="#">Hardware</a>
+                    <a href="#">Software</a>
+                    <a href="#">Everything Else</a>
             </div>  
         </div>
       </div>
@@ -25,10 +25,9 @@
         <h3>A look @ my tech</h3>
       </div>
 
-      <div class="image" id="hardware-img">
-        <img src="">
+      <div class="container-canvas" id="hardware-img">
+        <canvas id="canvas-hardware" height="0px"></canvas>
       </div>
-
       <div id="hardware-img-description">
           <div id="content-left">
             <h4 class="item-header">MacBook Pro 2015</h4>
