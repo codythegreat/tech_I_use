@@ -8,15 +8,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css" type="text/css">
   </head>
-  <body onload="increaseOpacityContents();drawCanvasAnimations();">
+  <body onload="increaseOpacityContents();drawCanvasImage();drawCanvasItemRects();drawCanvasAnimation();">
       <div class="navigation-bar" id="nav-top">
           <a href="#" class="nav-link" id="nav-top-header">Tech I Use</a>
           <div class="dropdown" id="nav-top-dropdown">
             <i class="material-icons">view_headline</i>
             <div class="dropdown-content" id="nav-top-dropdown-content">
-                    <a href="#">Hardware</a>
-                    <a href="#">Software</a>
-                    <a href="#">Everything Else</a>
+                    <a href="./index.html">On The Go</a>
+                    <a href="./at_home.html">At Home</a>
+                    <a href="./software.html">Software</a>
             </div>  
         </div>
       </div>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="container-canvas" id="hardware-img">
-        <img id="canvas-img" src="https://vignette.wikia.nocookie.net/universeconquest/images/e/e6/Sample.jpg/revision/latest?cb=20171003194302">
+        <img id="canvas-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Mono_Crater_closeup-1000px.jpeg">
         <canvas id="canvas-hardware" height="0px"></canvas>
       </div>
       <div id="hardware-img-description">

@@ -1,3 +1,7 @@
+const itemPositions = [[.15, .2],[.25, .5],[.44, .75],[.80, .2],[.70, .5],[.72, .8]];
+const canvas = document.getElementById("canvas-hardware");
+const ctx = canvas.getContext("2d");
+
 const increaseOpacityContents = () => {
     currentOpacity = 0.0;
     let intervalIncreaseOpacityLeft = setInterval(function() {increaseOpacity()}, 50);
@@ -16,27 +20,70 @@ const increaseOpacityContents = () => {
     }
 };
 
-const drawCanvasAnimations = () => {
-    const canvas = document.getElementById("canvas-hardware");
-    let ctx = canvas.getContext("2d");
-    ctx.canvas.width  = window.innerWidth;
-    let intervalCanvasHeight = setInterval(function() {
-        increaseCanvasHeight();
-    }, 2);
-    const increaseCanvasHeight = () => {
-        ctx.canvas.height += 5;
-        ctx.beginPath();
-        ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        ctx.fillStyle = "#311";
-        ctx.fill();
-        let img = document.getElementById("canvas-img");
-        ctx.drawImage(document.getElementById("canvas-img"), 
-            Math.floor(ctx.canvas.width - ((ctx.canvas.width - (600*1.77))/2) ) - Math.floor(ctx.canvas.height * 1.77), 
-            0, 
-            Math.floor(ctx.canvas.height * 1.77), 
-            ctx.canvas.height);
-        if (ctx.canvas.height == 600) {
-            clearInterval(intervalCanvasHeight);
-        }
+const drawCanvasImage = () => {
+    let img = document.getElementById("canvas-img");
+    
+    //Dynamic Canvas Resizing
+    if (img.naturalWidth >= window.innerWidth) {
+        ctx.canvas.width = window.innerWidth*.8;
+    } else {
+        ctx.canvas.width = img.naturalWidth;
     }
-}
+    ctx.canvas.height = ctx.canvas.width * (img.naturalHeight/img.naturalWidth);
+    ctx.fillStyle = "#311";
+    ctx.drawImage(document.getElementById("canvas-img"),
+        0,
+        0,
+        ctx.canvas.width,
+        ctx.canvas.height); 
+};
+
+const drawCanvasItemRects = () => {
+    let intervalDrawItemRects = setInterval(function() {
+        drawItemRects();
+    }, 30);
+    
+    let rectSize = 0;
+    const drawItemRects = () => {
+        rectSize += 1;
+        if (rectSize == 15) {clearInterval(intervalDrawItemRects);}
+        for (let position of itemPositions) {
+            ctx.fillRect(
+                Math.floor(ctx.canvas.width*position[0]),
+                Math.floor(ctx.canvas.height*position[1]),
+                rectSize,
+                rectSize
+            )
+        }
+    };
+};
+
+const drawCanvasAnimation = () => {
+    let intervalAnimations = setInterval(function() {
+        animate();
+    }, 10);
+    const animate = () => {
+        for (let position of itemPositions) {
+            let destination;
+            if (position[0] <= .5) {
+                destination = .04; //canvas far left
+            } else {
+                destination = .96; //canvas far right
+            }
+            ctx.fillRect(Math.floor(ctx.canvas.width*destination),
+                         Math.floor(ctx.canvas.height*position[1]),
+                         Math.floor((ctx.canvas.width*position[0])-(ctx.canvas.width*destination)),
+                         3)
+            ctx.fillRect(Math.floor(ctx.canvas.width*destination),
+                         Math.floor(ctx.canvas.height*position[1]),
+                         3,
+                         Math.floor(ctx.canvas.height*(1-position[1])))
+        }
+    };
+};
+
+window.addEventListener("resize", function() {
+    drawCanvasImage();
+    drawCanvasItemRects();
+    drawCanvasAnimation();
+});

@@ -1,9 +1,10 @@
 body {
     font-family: 'B612 Mono', monospace;
-    background: #eff;
+    background: #fff;
     width: 100%;
     height: 100%;
     margin: 0px;
+    color: black;
 }
 .navigation-bar {
     overflow: hidden;
@@ -26,8 +27,6 @@ body {
 #nav-top-dropdown:hover {
     background: #eff;
     color: #311;
-    box-sizing: border-box;
-    border: solid 5px #311;
 }
 #nav-top-dropdown:hover .dropdown-content {
     display: block;
@@ -43,7 +42,7 @@ body {
 }
 .dropdown-content a {
     float: none;
-    color: black;
+    color: 311;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -57,8 +56,16 @@ body {
     text-align: center;
     color: #311;
 }
+#hardware-img {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
 #canvas-img {
     display: none;
+}
+#canvas-hardware {
+    display: inline;
 }
 #hardware-img-description {
     max-width: 1000px;
@@ -101,3 +108,5 @@ body {
         margin: auto;
     }
 }
+
+/* #eff and #311 = old colors */
