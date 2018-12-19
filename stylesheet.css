@@ -57,6 +57,9 @@ body {
     text-align: center;
     color: #311;
 }
+#canvas-img {
+    display: none;
+}
 #hardware-img-description {
     max-width: 1000px;
     margin: auto;

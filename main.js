@@ -1,7 +1,7 @@
 const increaseOpacityContents = () => {
     currentOpacity = 0.0;
-    let intervalIncreaseOpacityLeft = setInterval(function() {increaseOpacity()}, 30);
-    let intervalIncreaseOpacityRight = setInterval(function() {increaseOpacity()}, 30);
+    let intervalIncreaseOpacityLeft = setInterval(function() {increaseOpacity()}, 50);
+    let intervalIncreaseOpacityRight = setInterval(function() {increaseOpacity()}, 50);
 
     const increaseOpacity = () => {
         document.getElementById("content-left").style.opacity = `${currentOpacity}`;
@@ -29,6 +29,8 @@ const drawCanvasAnimations = () => {
         ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.fillStyle = "#311";
         ctx.fill();
+        let img = document.getElementById("canvas-img");
+        ctx.drawImage(document.getElementById("canvas-img"), Math.floor(ctx.canvas.width/2), 0, Math.floor(ctx.canvas.width - ((img.naturalWidth/img.naturalHeight)*ctx.canvas.height)), ctx.canvas.height);
         if (ctx.canvas.height == 600) {
             clearInterval(intervalCanvasHeight);
         }
