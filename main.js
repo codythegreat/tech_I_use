@@ -1,4 +1,4 @@
-const itemPositions = [[.15, .2],[.25, .5],[.44, .75],[.80, .2],[.70, .5],[.72, .8]];
+const itemPositions = [[.15, .2],[.15, .80],[.34, .75],[.60, .26],[.75, .35],[.72, .8]];
 const canvas = document.getElementById("canvas-hardware");
 const ctx = canvas.getContext("2d");
 
