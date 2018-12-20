@@ -23,10 +23,12 @@ const drawCanvasImage = () => {
     let img = document.getElementById("canvas-img");
     
     //Dynamic Canvas Resizing
-    if (img.naturalWidth >= window.innerWidth) {
-        ctx.canvas.width = window.innerWidth*.8;
+    if (window.innerWidth > 3000) {
+        ctx.canvas.width = window.innerWidth * .4;
+    } else if (window.innerWidth > 1000) {
+        ctx.canvas.width = window.innerWidth * .6;
     } else {
-        ctx.canvas.width = img.naturalWidth;
+        ctx.canvas.width = window.innerWidth * .8;
     }
     ctx.canvas.height = ctx.canvas.width * (img.naturalHeight/img.naturalWidth);
     ctx.fillStyle = "#54A9FF";
